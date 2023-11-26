@@ -38,15 +38,14 @@ struct Student* searchStudentById(struct Student s[], int num_students, int id) 
 
 int main() {
     struct Student students[41];
-    int num_students;
+    int n;
     int i;
 
     printf("Nhap so luong sinh vien (toi da 41): ");
-    scanf("%d", &num_students);
+    scanf("%d", &n);
 
-    for ( i = 0; i < num_students; i++) {
+    for ( i = 0; i < n; i++) {
         printf("Nhap thong tin sinh vien %d:\n", i + 1);
-
         printf("Nhap ten: ");
         getchar();
         fgets(students[i].Name, sizeof(students[i].Name), stdin);
@@ -68,10 +67,10 @@ int main() {
     }
 
     // Sap xep sinh viên theo tên và in ra
-    sortStudentsByName(students, num_students);
+    sortStudentsByName(students, n);
     printf("\nDanh sach sinh vien theo ten:\n");
   
-    for ( i = 0; i < num_students; i++) {
+    for ( i = 0; i < n; i++) {
         printf("Ten: %s", students[i].Name);
         printf("Ma so: %d\n", students[i].stdId);
         printf("Tuoi: %d\n", students[i].age);
@@ -82,7 +81,7 @@ int main() {
     int search_id;
     printf("\nNhap ID sinh vien can tim: ");
     scanf("%d", &search_id);
-    struct Student* foundStudent = searchStudentById(students, num_students, search_id);
+    struct Student* foundStudent = searchStudentById(students, n, search_id);
     if (foundStudent != NULL) {
         printf("\nThong tin sinh vien co ID %d:\n", search_id);
         printf("Ten: %s", foundStudent->Name);
